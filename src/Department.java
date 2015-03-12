@@ -5,10 +5,10 @@ import javax.swing.*;
 
 
 public class Department {
-	public static void main(String[] args){
+	
+	public Department(String name){
 		Hashtable<String, Integer> items = new Hashtable<String, Integer>();
-		DepartmentPage page = new DepartmentPage();
-		//create hash table\\
+		DepartmentPage page = new DepartmentPage(name);
 		//main screen\\
 			//buttons along bottom
 				//add, change Price, change Amount, remove Item, search
@@ -20,7 +20,7 @@ public class Department {
 	}
 	
 	public void addItem(String name){
-		//
+		
 	}
 	
 	public void changePrice(){
