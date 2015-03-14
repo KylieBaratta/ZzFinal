@@ -1,32 +1,32 @@
 
 public class Items {
-	
-	private String name;
+
 	private String brand;
+	private String type;
 	private double price;
 	private int quantity;
-	
-	public Items(String name, String department, double price, int quantity){
-		this.name = name;
-		this.brand = department;
+
+	public Items(String brand, String type, double price, int quantity){
+		this.brand = brand;
+		this.type = type;
 		this.price = price;
 		this.quantity = quantity;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDepartment() {
+	public String getBrand() {
 		return brand;
 	}
 
-	public void setDepartment(String department) {
-		this.brand = department;
+	public void setBrand(String name) {
+		this.brand = name;
+	}
+
+	public String getType() {
+		return brand;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public double getPrice() {
@@ -36,11 +36,11 @@ public class Items {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
+
 	public int getQuantity(){
 		return quantity;
 	}
-	
+
 	public void setQuantity(int quantity){
 		this.quantity = quantity;
 	}
@@ -51,7 +51,7 @@ public class Items {
 		int result = 1;
 		result = prime * result
 				+ ((brand == null) ? 0 : brand.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(price);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -72,15 +72,29 @@ public class Items {
 				return false;
 		} else if (!brand.equals(other.brand))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (brand == null) {
+			if (other.brand != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!brand.equals(other.brand))
 			return false;
 		if (Double.doubleToLongBits(price) != Double
 				.doubleToLongBits(other.price))
 			return false;
 		return true;
 	}
-	
+
+	public String toString()
+	{
+		final StringBuilder builder = new StringBuilder();
+		builder.append("\n");
+		builder.append(this.brand);
+		builder.append(" ");
+		builder.append(this.type);
+		builder.append(" | Price: ");
+		builder.append(this.price);
+		builder.append(" | Quantity: ");
+		builder.append(this.quantity);
+		builder.append("\n");
+		return builder.toString();
+	}
 }

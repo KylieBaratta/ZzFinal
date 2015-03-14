@@ -12,10 +12,10 @@ public class Department {
 		//main screen\\
 			//buttons along bottom
 				//add, change Price, change Amount, remove Item, search
-	Inventory cleaning = new Inventory();
-	Items soap = new Items("Soap", "cleaning", 1.99, 25);
 	
-	cleaning.addItem(soap);
+	Inventory cleaning = new Inventory();
+	Items tideSoap = new Items("Tide", "Soap", 1.99, 25);
+	cleaning.addItem(tideSoap);
 	System.out.println(cleaning);
 	}
 	

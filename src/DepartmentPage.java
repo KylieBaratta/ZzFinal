@@ -1,11 +1,16 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 
-public class DepartmentPage extends FlowLayout{
+@SuppressWarnings("serial")
+public class DepartmentPage extends FlowLayout implements ActionListener{
 	
 	ArrayList<JButton> buttons = new ArrayList<JButton>();
 	JButton addItem = new JButton("Add an Item");
@@ -19,16 +24,21 @@ public class DepartmentPage extends FlowLayout{
 		JFrame frame = new JFrame(name + " Department:");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(d);
-		buttons.add(addItem);
-		buttons.add(price);
-		buttons.add(quantity);
-		buttons.add(removeItem);
-		for(JButton b : buttons){
-			b.setPreferredSize(new Dimension(60,20));
-			frame.add(b);
-		}
+		addItem.setPreferredSize(new Dimension(60,20));
+		price.setPreferredSize(new Dimension(60,20));
+		quantity.setPreferredSize(new Dimension(60,20));
+		removeItem.setPreferredSize(new Dimension(60,20));
+		frame.add(addItem);
+		frame.add(price);
+		frame.add(quantity);
+		frame.add(removeItem);
 		frame.pack();
-		frame.setLocation((1920/2)-(frame.getWidth()/2), (1080/2)-frame.getHeight()/2);
+		frame.setLocation((1920/2), 0);
 		frame.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
 	}
 }

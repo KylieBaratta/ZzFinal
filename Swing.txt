@@ -1,0 +1,141 @@
+package edu.csc150;
+
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class SwingApp implements ChangeListener, ActionListener{
+	
+	static int i = 0;
+	
+	static JButton button = new JButton("Save");
+	
+	static JSlider slider = new JSlider(0, 12000, 6000);
+	static JSlider slider2 = new JSlider(0, 100, 50);
+	static JSlider slider3 = new JSlider(0, 100, 50);
+	static JSlider slider4 = new JSlider(0, 100, 50);
+	static JSlider slider5 = new JSlider(0, 100, 50);
+	static JSlider slider6 = new JSlider(0, 100, 50);
+	
+	static JLabel label = new JLabel("Simulation Time");
+	static JLabel label2 = new JLabel("Car Rate");
+	static JLabel label3 = new JLabel("Blue Car Spawn");
+	static JLabel label4 = new JLabel("Red Car Spawn");
+	static JLabel label5 = new JLabel("Yellow Car Spawn");
+	static JLabel label6 = new JLabel("Purple Car Spawn");
+	
+	static int SimulationTime;
+	static int CarRate;
+	static int BlueCarRate;
+	static int RedCarRate;
+	static int YellowCarRate;
+	static int PurpleCarRate;	
+
+	public static void main(String[] args) {
+		new SwingApp();
+	}
+	
+	public SwingApp(){
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Dimension d = new Dimension(900, 350);
+		frame.setPreferredSize(d);
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel);
+		slider.setMinorTickSpacing(250);
+		slider.setMajorTickSpacing(1000);
+		slider.setPaintLabels(true);
+		slider.setSnapToTicks(true);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.add(label);
+		panel.add(slider);
+		slider.addChangeListener(this);
+		
+		slider2.setMinorTickSpacing(5);
+		slider2.setMajorTickSpacing(10);
+		slider2.setPaintLabels(true);
+		slider2.setSnapToTicks(true);
+		panel.add(label2);
+		panel.add(slider2);
+		slider2.addChangeListener(this);
+		
+		slider3.setMinorTickSpacing(5);
+		slider3.setMajorTickSpacing(10);
+		slider3.setPaintLabels(true);
+		slider3.setSnapToTicks(true);
+		panel.add(label3);
+		panel.add(slider3);
+		slider3.addChangeListener(this);
+		
+		slider4.setMinorTickSpacing(5);
+		slider4.setMajorTickSpacing(10);
+		slider4.setPaintLabels(true);
+		slider4.setSnapToTicks(true);
+		panel.add(label4);
+		panel.add(slider4);
+		slider4.addChangeListener(this);
+		
+		slider5.setMinorTickSpacing(5);
+		slider5.setMajorTickSpacing(10);
+		slider5.setPaintLabels(true);
+		slider5.setSnapToTicks(true);
+		panel.add(label5);
+		panel.add(slider5);
+		slider5.addChangeListener(this);
+		
+		slider6.setMinorTickSpacing(5);
+		slider6.setMajorTickSpacing(10);
+		slider6.setPaintLabels(true);
+		slider6.setSnapToTicks(true);
+		panel.add(label6);
+		panel.add(slider6);
+		slider6.addChangeListener(this);
+		
+		panel.add(button);
+		button.addActionListener(this);
+
+		frame.pack();
+		frame.setLocation((1920/2)-(frame.getWidth()/2), (1080/2)-(frame.getHeight()/2));
+		frame.setVisible(true);
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		if(e.getSource() == slider){
+			SimulationTime = slider.getValue();
+		}
+		if(e.getSource() == slider2){
+			CarRate = slider2.getValue();
+		}
+		if(e.getSource() == slider3){
+			BlueCarRate = slider3.getValue();
+		}
+		if(e.getSource() == slider4){
+			RedCarRate = slider4.getValue();
+		}
+		if(e.getSource() == slider5){
+			YellowCarRate = slider5.getValue();
+		}
+		if(e.getSource() == slider6){
+			PurpleCarRate = slider6.getValue();
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == button){
+			System.out.println("JButton Test");
+			new WriteFile(SimulationTime, CarRate, BlueCarRate, RedCarRate, YellowCarRate, PurpleCarRate);
+		}
+	}
+}
