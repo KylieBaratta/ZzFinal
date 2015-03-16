@@ -1,41 +1,22 @@
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Hashtable;
 
-import javax.swing.*;
-
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 public class Department {
 	
 	public Department(String name){
-		Hashtable<String, Integer> items = new Hashtable<String, Integer>();
-		DepartmentPage page = new DepartmentPage(name);
-		//main screen\\
-			//buttons along bottom
-				//add, change Price, change Amount, remove Item, search
-	
-	Inventory cleaning = new Inventory();
-	Items tideSoap = new Items("Tide", "Soap", 1.99, 25);
-	cleaning.addItem(tideSoap);
-	System.out.println(cleaning);
-	}
-	
-	public void addItem(String name){
-		
-	}
-	
-	public void changePrice(){
-		
-	}
-	
-	public void changeQuantity(){
-		
-	}
-	
-	public void removeItem(){
-		
-	}
-	
-	public void search(){
-		
+		JFrame frame = new JFrame(name+" Department");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		DepartmentLayoutPanel panel = new DepartmentLayoutPanel();
+		frame.getContentPane().add(panel);
+		frame.pack();
+		frame.setLocation(0, 0);
+		frame.setVisible(true);
 	}
 }

@@ -25,11 +25,10 @@ public class Inventory {
 	    for (final Entry<String, Items> entry : inventory.entrySet())
 	    {
 	        builder.append(entry.getKey());
-	        builder.append("=>");
+	        builder.append(" =>");
 	        builder.append(entry.getValue());
 	        builder.append("\n");
 	    }
-
 	    return builder.toString();
 	}
 }
