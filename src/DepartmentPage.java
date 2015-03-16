@@ -15,7 +15,7 @@ public class DepartmentPage {
 	}
 
 	public DepartmentPage(int indentifier){
-		JFrame frame = new JFrame("Store #"+indentifier);
+		JFrame frame = new JFrame("Store #" + indentifier);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		DepartmentLayoutPanel panel = new DepartmentLayoutPanel();
 		frame.getContentPane().add(panel);
