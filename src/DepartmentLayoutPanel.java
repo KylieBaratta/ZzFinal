@@ -7,45 +7,52 @@ import javax.swing.*;
 
 
 public class DepartmentLayoutPanel extends JPanel{
+	Inventory inventory = new Inventory();
 	private int count = 0;
 	JButton addItem = new JButton("Add an Item");
-	JTextField addItemText = new JTextField("", 40);
-	JButton price = new JButton("Change the Price");
-	JTextField priceText= new JTextField("", 40);
-	JButton quantity = new JButton("Change the Price");
-	JTextField quantityText = new JTextField("", 40);
+	JTextField addItemText = new JTextField("Add an Item", 30);
+	JTextField brandText = new JTextField("Item Brand", 30);
+	JTextField priceText= new JTextField("Change the Price", 30);
+	JTextField quantityText = new JTextField("Change the Quantity", 30);
 	JButton removeItem = new JButton("Remove an Item");
-	JTextField removeText = new JTextField("", 40);
+	JTextField removeItemText = new JTextField("Choose Item To Remove", 30);
 
 	public DepartmentLayoutPanel(){
 		ButtonListener listener = new ButtonListener();
-		addItem.addActionListener(listener);
-		price.addActionListener(listener);
-		quantity.addActionListener(listener);
-		removeItem.addActionListener(listener);
 		addItemText.addActionListener(listener);
 		priceText.addActionListener(listener);
 		quantityText.addActionListener(listener);
-		removeText.addActionListener(listener);
-		
+		removeItem.addActionListener(listener);
 		this.add(addItem);
 		this.add(addItemText);
-		this.add(price);
+		this.add(brandText);
 		this.add(priceText);
-		this.add(quantity);
 		this.add(quantityText);
 		this.add(removeItem);
-		this.add(removeText);
+		this.add(removeItemText);
 		this.setBackground(Color.gray);
-		this.setPreferredSize(new Dimension(600, 300));
+		this.setPreferredSize(new Dimension(375, 300));
 	}
 
 	public class ButtonListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource()== addItem){
-				
+			if(e.getSource() == addItem){
+				addThings();
 			}
 		}
 	}
+	
+	public void addThings(){
+		String brand = brandText.getText();
+		String name = addItemText.getText();
+		String priceString = priceText.getText();
+		double price = Double.parseDouble(priceString);
+		String quantityString = quantityText.getText();
+		int quantity = Integer.parseInt(quantityString);
+		Items a = new Items(brand, name, price, quantity);
+		inventory.add(a);
+		System.out.println(inventory);
+	}
+	
 }

@@ -6,7 +6,7 @@ public class Inventory {
 
 	public HashMap<String, Items> inventory = new HashMap<String, Items>();
 	
-	public void addItem(Items item){
+	public void add(Items item){
 		if (inventory.containsKey(item.getBrand()))
 			throw new Error("Item already exists");
 		inventory.put(item.getBrand(), item);

@@ -16,7 +16,7 @@ public class Department {
 		DepartmentLayoutPanel panel = new DepartmentLayoutPanel();
 		frame.getContentPane().add(panel);
 		frame.pack();
-		frame.setLocation(0, 0);
+		frame.setLocation(615, 0);
 		frame.setVisible(true);
 	}
 }

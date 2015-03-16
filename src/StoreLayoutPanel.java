@@ -18,7 +18,6 @@ public class StoreLayoutPanel extends JPanel{
 		
 		this.add(addDepartment);
 		this.add(search);
-		search.setVisible(show);
 		this.setBackground(Color.gray);
 		this.setPreferredSize(new Dimension(600, 300));
 	}
@@ -27,7 +26,7 @@ public class StoreLayoutPanel extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()== addDepartment){
-				show = true;
+				search.setText("Enter Department Name");
 			}
 			else if(e.getSource()==search){
 				new Department(search.getText());
