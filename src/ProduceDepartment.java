@@ -2,7 +2,6 @@
 public class ProduceDepartment extends Department{
 	Inventory inventory = new Inventory();
 	
-	
 	public static void main(String[] args){
 		new ProduceDepartment();
 	}
@@ -18,18 +17,18 @@ public class ProduceDepartment extends Department{
 		Items cantaloupe = new Items("CanAnOpe", "Orange", 3.99, 2);
 		Items strawberries = new Items("FreshProduce", "Summer", 5.99, 50);
 		
-		
 		inventory.add(apple);
 		inventory.add(grape);
 		inventory.add(lettuce);
 		inventory.add(peaches);
 		inventory.add(cantaloupe);
 		inventory.add(strawberries);
+		print();
 		
 	}
 	
-	
-	
-	
+	public void print (){
+		System.out.println(inventory);
+	}
 
 }
