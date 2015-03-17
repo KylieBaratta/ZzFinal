@@ -10,60 +10,28 @@ import javax.swing.*;
 public class StoreLayoutPanel extends JPanel{
 	private JButton addDepartment = new JButton("Add a Department");
 	private JTextField search = new JTextField("Enter Department Name:", 20);
-	private JButton deli = new JButton("Deli");
-	private JButton produce = new JButton("Produce");
-	private JButton bakery = new JButton("Bakery");
-	private JButton cleaning = new JButton("Cleaning");
-	private JButton frozenFood = new JButton("Frozen Food");
-	private JButton dryGoods = new JButton("Dry Foods");
-	private JButton seasonal = new JButton("Seasonal");
-	private JButton meat = new JButton("Meat");
+
 	
 	public boolean show = false;
 	public StoreLayoutPanel(){
 		ButtonListener listener = new ButtonListener();
 		addDepartment.addActionListener(listener);
 		search.addActionListener(listener);
-		
-		this.add(deli);
-		this.add(produce);
-		this.add(bakery);
-		this.add(meat);
-		this.add(cleaning);
-		this.add(frozenFood);
-		this.add(dryGoods);
-		this.add(seasonal);
-		
+		this.add(addDepartment);
+		this.add(search);
+				
 		this.setBackground(Color.gray);
-		this.setPreferredSize(new Dimension(300, 200));
+		this.setPreferredSize(new Dimension(600, 300));
 	}
 
 	public class ButtonListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource()== deli){
-				new DeliDepartment();
+			if(e.getSource()== addDepartment){
+				search.setText("Enter Department Name");
 			}
-			else if(e.getSource()==produce){
-				new ProduceDepartment();
-			}
-			else if(e.getSource()==bakery){
-				new BakeryDepartment();
-			}
-			else if(e.getSource()==meat){
-				new MeatDepartment();
-			}
-			else if(e.getSource()==cleaning){
-				new CleaningDepartment();
-			}
-			else if(e.getSource()==frozenFood){
-				new FrozenFoodDepartment();
-			}
-			else if(e.getSource()==dryGoods){
-				new DryGoodsDepartment();
-			}
-			else if(e.getSource()==seasonal){
-				new SeasonalDepartment();
+			else if(e.getSource()==search){
+				new Department(search.getText());
 			}
 		}
 	}
