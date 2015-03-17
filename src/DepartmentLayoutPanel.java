@@ -10,16 +10,16 @@ import javax.swing.*;
 public class DepartmentLayoutPanel extends JPanel{
 	JButton print = new JButton("Show Inventory");
 	JButton addItem = new JButton("Add an Item");
-	JLabel addItemLabel= new JLabel("Add an Item");
-	JTextField addItemText = new JTextField(30);
+	JLabel addItemLabel= new JLabel("Item Name");
+	JTextField addItemText = new JTextField(20);
 	JLabel brandLabel= new JLabel("Item Brand");
-	JTextField brandText = new JTextField(30);
-	JLabel priceLabel= new JLabel("Change the Price");
-	JTextField priceText= new JTextField(30);
-	JLabel quantityLabel= new JLabel("Change the Quantity");
-	JTextField quantityText = new JTextField(30);
+	JTextField brandText = new JTextField(20);
+	JLabel priceLabel= new JLabel("Item Price");
+	JTextField priceText= new JTextField(20);
+	JLabel quantityLabel= new JLabel("Item Quantity");
+	JTextField quantityText = new JTextField(20);
 	JButton removeItem = new JButton("Remove an Item");
-	JTextField removeItemText = new JTextField("Choose Item To Remove", 30);
+	JTextField removeItemText = new JTextField("Choose Item To Remove", 20);
 	String name;
 	String brand;
 	String priceString;
@@ -49,7 +49,7 @@ public class DepartmentLayoutPanel extends JPanel{
 		this.add(removeItem);
 		this.add(removeItemText);
 		this.setBackground(Color.gray);
-		this.setPreferredSize(new Dimension(375, 300));
+		this.setPreferredSize(new Dimension(275, 300));
 	}
 
 	public class ButtonListener implements ActionListener{
