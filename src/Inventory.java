@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-
 public class Inventory {
 
 	public HashMap<String, Items> inventory = new HashMap<String, Items>();
@@ -32,5 +31,3 @@ public class Inventory {
 	    return builder.toString();
 	}
 }
-
-
