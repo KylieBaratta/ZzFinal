@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 public class Department {
 	
 	public Department(String name){
-		JFrame frame = new JFrame(name+" Department");
+		JFrame frame = new JFrame(name + " Department");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		DepartmentLayoutPanel panel = new DepartmentLayoutPanel();
 		frame.getContentPane().add(panel);
