@@ -19,10 +19,5 @@ public class DeliDepartment extends Department{
 		inventory.add(zimChicken);
 		inventory.add(nanPotatoSalad);
 		inventory.add(italianPastaSalad);
-		print();
-	}
-	
-	public void print(){
-		System.out.println(inventory);
 	}
 }

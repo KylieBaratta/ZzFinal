@@ -8,13 +8,16 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class DepartmentLayoutPanel extends JPanel{
-	Inventory inventory;
 	JButton print = new JButton("Show Inventory");
 	JButton addItem = new JButton("Add an Item");
-	JTextField addItemText = new JTextField("Add an Item", 30);
-	JTextField brandText = new JTextField("Item Brand", 30);
-	JTextField priceText= new JTextField("Change the Price", 30);
-	JTextField quantityText = new JTextField("Change the Quantity", 30);
+	JLabel addItemLabel= new JLabel("Add an Item");
+	JTextField addItemText = new JTextField(30);
+	JLabel brandLabel= new JLabel("Item Brand");
+	JTextField brandText = new JTextField(30);
+	JLabel priceLabel= new JLabel("Change the Price");
+	JTextField priceText= new JTextField(30);
+	JLabel quantityLabel= new JLabel("Change the Quantity");
+	JTextField quantityText = new JTextField(30);
 	JButton removeItem = new JButton("Remove an Item");
 	JTextField removeItemText = new JTextField("Choose Item To Remove", 30);
 	String name;
@@ -23,10 +26,10 @@ public class DepartmentLayoutPanel extends JPanel{
 	String quantityString;
 	double price;
 	int quantity;
+	Department depar;
 
-
-
-	public DepartmentLayoutPanel(){
+	public DepartmentLayoutPanel(Department depar){
+		this.depar = depar;
 		ButtonListener listener = new ButtonListener();
 		addItemText.addActionListener(listener);
 		priceText.addActionListener(listener);
@@ -35,9 +38,13 @@ public class DepartmentLayoutPanel extends JPanel{
 		print.addActionListener(listener);
 		this.add(print);
 		this.add(addItem);
+		this.add(addItemLabel);
 		this.add(addItemText);
+		this.add(brandLabel);
 		this.add(brandText);
+		this.add(priceLabel);
 		this.add(priceText);
+		this.add(quantityLabel);
 		this.add(quantityText);
 		this.add(removeItem);
 		this.add(removeItemText);
@@ -64,7 +71,7 @@ public class DepartmentLayoutPanel extends JPanel{
 				quantityString = quantityText.getText();
 			}
 			else if(e.getSource() == print){
-				print();
+				System.out.println(depar.inventory);
 			}
 		}
 	}
@@ -73,10 +80,6 @@ public class DepartmentLayoutPanel extends JPanel{
 		double price = Double.parseDouble(priceString);
 		int quantity = Integer.parseInt(quantityString);
 		Items a = new Items(brand, name, price, quantity);
-		inventory.add(a);
-	}
-
-	public void print(){
-		System.out.println(inventory);
+		depar.inventory.add(a);
 	}
 }
