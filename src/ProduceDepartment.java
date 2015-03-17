@@ -8,8 +8,6 @@ public class ProduceDepartment extends Department{
 	
 	public ProduceDepartment(){
 		super("Produce");
-		
-		Department produce = new Department("Produce");
 		Items apple = new Items("AppleHill", "fuji", 0.69, 1);
 		Items grape = new Items("Grape", "Andre", 4.99, 100);
 		Items lettuce = new Items("LetIs ", "regular", 3.99, 20);

@@ -1,14 +1,12 @@
-import javax.swing.JFrame;
-
 
 public class DeliDepartment extends Department{
 	Inventory inventory = new Inventory();
 	public static void main(String[] args){
 		new DeliDepartment();
 	}
+	
 	public DeliDepartment() {
 		super("deli");
-		Department deli = new Department("Deli");
 		Items someHam = new Items("Some", "Ham", 1.99, 20);
 		Items bestRoastBeef = new Items("Best", "Roast Beef", 2.99, 15);
 		Items girTurkey = new Items("Gir's", "Turkey", 3.99, 10);

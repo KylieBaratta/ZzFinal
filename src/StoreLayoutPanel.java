@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
+@SuppressWarnings("serial")
 public class StoreLayoutPanel extends JPanel{
-	private int count = 0;
 	private JButton addDepartment = new JButton("Add a Department");
 	private JTextField search = new JTextField("Enter Department Name:", 20);
 	public boolean show = false;

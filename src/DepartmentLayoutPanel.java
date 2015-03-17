@@ -6,8 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
+@SuppressWarnings("serial")
 public class DepartmentLayoutPanel extends JPanel{
-	private int count = 0;
+	Inventory inventory;
 	JButton print = new JButton("Show Inventory");
 	JButton addItem = new JButton("Add an Item");
 	JTextField addItemText = new JTextField("Add an Item", 30);
@@ -18,11 +19,13 @@ public class DepartmentLayoutPanel extends JPanel{
 	JTextField removeItemText = new JTextField("Choose Item To Remove", 30);
 	String name;
 	String brand;
+	String priceString;
+	String quantityString;
 	double price;
 	int quantity;
-	
-	
-	
+
+
+
 	public DepartmentLayoutPanel(){
 		ButtonListener listener = new ButtonListener();
 		addItemText.addActionListener(listener);
@@ -48,23 +51,32 @@ public class DepartmentLayoutPanel extends JPanel{
 			if(e.getSource() == addItem){
 				addThings();
 			}
+			else if(e.getSource() == addItemText){
+				name = addItemText.getText();
+			}
+			else if(e.getSource() == brandText){
+				brand = brandText.getText();
+			}
+			else if(e.getSource() == priceText){
+				priceString = priceText.getText();
+			}
+			else if(e.getSource() == quantityText){
+				quantityString = quantityText.getText();
+			}
 			else if(e.getSource() == print){
 				print();
 			}
 		}
 	}
-	
+
 	public void addThings(){
-		String brand = brandText.getText();
-		String name = addItemText.getText();
-		String priceString = priceText.getText();
 		double price = Double.parseDouble(priceString);
-		String quantityString = quantityText.getText();
 		int quantity = Integer.parseInt(quantityString);
 		Items a = new Items(brand, name, price, quantity);
+		inventory.add(a);
 	}
-	
+
 	public void print(){
-		
+		System.out.println(inventory);
 	}
 }
