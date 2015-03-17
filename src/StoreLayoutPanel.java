@@ -42,10 +42,28 @@ public class StoreLayoutPanel extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()== deli){
-				new Department("Deli");
+				new DeliDepartment();
 			}
-			else if(e.getSource()==search){
-				new Department(search.getText());
+			else if(e.getSource()==produce){
+				new ProduceDepartment();
+			}
+			else if(e.getSource()==bakery){
+				new BakeryDepartment();
+			}
+			else if(e.getSource()==meat){
+				new MeatDepartment();
+			}
+			else if(e.getSource()==cleaning){
+				new CleaningDepartment();
+			}
+			else if(e.getSource()==frozenFood){
+				new FrozenFoodDepartment();
+			}
+			else if(e.getSource()==dryGoods){
+				new DryGoodsDepartment();
+			}
+			else if(e.getSource()==seasonal){
+				new SeasonalDepartment();
 			}
 		}
 	}
