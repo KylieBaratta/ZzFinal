@@ -10,7 +10,7 @@ public class DeliDepartment extends Department{
 		super("deli");
 		Department deli = new Department("Deli");
 		Items someHam = new Items("Some", "Ham", 1.99, 20);
-		Items bestRoastBeef= new Items("Best", "Roast Beef", 2.99, 15);
+		Items bestRoastBeef = new Items("Best", "Roast Beef", 2.99, 15);
 		Items girTurkey = new Items("Gir's", "Turkey", 3.99, 10);
 		Items zimChicken = new Items("Zim's", "Chicken", 4.99, 5);
 		Items nanPotatoSalad = new Items("Nan's", "Potato Salad", 5.99, 25);
