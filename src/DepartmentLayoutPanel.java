@@ -7,8 +7,8 @@ import javax.swing.*;
 
 
 public class DepartmentLayoutPanel extends JPanel{
-	Inventory inventory = new Inventory();
 	private int count = 0;
+	JButton print = new JButton("Show Inventory");
 	JButton addItem = new JButton("Add an Item");
 	JTextField addItemText = new JTextField("Add an Item", 30);
 	JTextField brandText = new JTextField("Item Brand", 30);
@@ -16,13 +16,21 @@ public class DepartmentLayoutPanel extends JPanel{
 	JTextField quantityText = new JTextField("Change the Quantity", 30);
 	JButton removeItem = new JButton("Remove an Item");
 	JTextField removeItemText = new JTextField("Choose Item To Remove", 30);
-
+	String name;
+	String brand;
+	double price;
+	int quantity;
+	
+	
+	
 	public DepartmentLayoutPanel(){
 		ButtonListener listener = new ButtonListener();
 		addItemText.addActionListener(listener);
 		priceText.addActionListener(listener);
 		quantityText.addActionListener(listener);
 		removeItem.addActionListener(listener);
+		print.addActionListener(listener);
+		this.add(print);
 		this.add(addItem);
 		this.add(addItemText);
 		this.add(brandText);
@@ -40,6 +48,9 @@ public class DepartmentLayoutPanel extends JPanel{
 			if(e.getSource() == addItem){
 				addThings();
 			}
+			else if(e.getSource() == print){
+				print();
+			}
 		}
 	}
 	
@@ -51,8 +62,9 @@ public class DepartmentLayoutPanel extends JPanel{
 		String quantityString = quantityText.getText();
 		int quantity = Integer.parseInt(quantityString);
 		Items a = new Items(brand, name, price, quantity);
-		inventory.add(a);
-		System.out.println(inventory);
 	}
 	
+	public void print(){
+		
+	}
 }
